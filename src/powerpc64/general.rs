@@ -802,6 +802,13 @@ pub mode: __u64,
 pub mapped: __s64,
 }
 #[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct uffdio_poison {
+pub range: uffdio_range,
+pub mode: __u64,
+pub updated: __s64,
+}
+#[repr(C)]
 #[derive(Debug)]
 pub struct linux_dirent64 {
 pub d_ino: crate::ctypes::c_ulong,
@@ -927,9 +934,9 @@ pub sa_flags: crate::ctypes::c_ulong,
 pub sa_restorer: __sigrestore_t,
 pub sa_mask: kernel_sigset_t,
 }
-pub const LINUX_VERSION_CODE: u32 = 394496;
+pub const LINUX_VERSION_CODE: u32 = 394752;
 pub const LINUX_VERSION_MAJOR: u32 = 6;
-pub const LINUX_VERSION_PATCHLEVEL: u32 = 5;
+pub const LINUX_VERSION_PATCHLEVEL: u32 = 6;
 pub const LINUX_VERSION_SUBLEVEL: u32 = 0;
 pub const AT_DCACHEBSIZE: u32 = 19;
 pub const AT_ICACHEBSIZE: u32 = 20;
@@ -1871,7 +1878,8 @@ pub const SEGV_ADIDERR: u32 = 6;
 pub const SEGV_ADIPERR: u32 = 7;
 pub const SEGV_MTEAERR: u32 = 8;
 pub const SEGV_MTESERR: u32 = 9;
-pub const NSIGSEGV: u32 = 9;
+pub const SEGV_CPERR: u32 = 10;
+pub const NSIGSEGV: u32 = 10;
 pub const BUS_ADRALN: u32 = 1;
 pub const BUS_ADRERR: u32 = 2;
 pub const BUS_OBJERR: u32 = 3;
@@ -2547,6 +2555,7 @@ pub const __NR_process_mrelease: u32 = 448;
 pub const __NR_futex_waitv: u32 = 449;
 pub const __NR_set_mempolicy_home_node: u32 = 450;
 pub const __NR_cachestat: u32 = 451;
+pub const __NR_fchmodat2: u32 = 452;
 pub const WNOHANG: u32 = 1;
 pub const WUNTRACED: u32 = 2;
 pub const WSTOPPED: u32 = 2;
@@ -2627,6 +2636,7 @@ pub const _UFFDIO_COPY: u32 = 3;
 pub const _UFFDIO_ZEROPAGE: u32 = 4;
 pub const _UFFDIO_WRITEPROTECT: u32 = 6;
 pub const _UFFDIO_CONTINUE: u32 = 7;
+pub const _UFFDIO_POISON: u32 = 8;
 pub const _UFFDIO_API: u32 = 63;
 pub const UFFDIO: u32 = 170;
 pub const UFFD_EVENT_PAGEFAULT: u32 = 18;
@@ -2651,6 +2661,7 @@ pub const UFFD_FEATURE_MINOR_SHMEM: u32 = 1024;
 pub const UFFD_FEATURE_EXACT_ADDRESS: u32 = 2048;
 pub const UFFD_FEATURE_WP_HUGETLBFS_SHMEM: u32 = 4096;
 pub const UFFD_FEATURE_WP_UNPOPULATED: u32 = 8192;
+pub const UFFD_FEATURE_POISON: u32 = 16384;
 pub const UFFD_USER_MODE_ONLY: u32 = 1;
 pub const DT_UNKNOWN: u32 = 0;
 pub const DT_FIFO: u32 = 1;
@@ -2725,6 +2736,7 @@ FSCONFIG_SET_PATH_EMPTY = 4,
 FSCONFIG_SET_FD = 5,
 FSCONFIG_CMD_CREATE = 6,
 FSCONFIG_CMD_RECONFIGURE = 7,
+FSCONFIG_CMD_CREATE_EXCL = 8,
 }
 #[repr(u32)]
 #[non_exhaustive]

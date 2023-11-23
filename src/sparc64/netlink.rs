@@ -942,6 +942,7 @@ pub const IFLA_BRPORT_MAB: _bindgen_ty_8 = _bindgen_ty_8::IFLA_BRPORT_MAB;
 pub const IFLA_BRPORT_MCAST_N_GROUPS: _bindgen_ty_8 = _bindgen_ty_8::IFLA_BRPORT_MCAST_N_GROUPS;
 pub const IFLA_BRPORT_MCAST_MAX_GROUPS: _bindgen_ty_8 = _bindgen_ty_8::IFLA_BRPORT_MCAST_MAX_GROUPS;
 pub const IFLA_BRPORT_NEIGH_VLAN_SUPPRESS: _bindgen_ty_8 = _bindgen_ty_8::IFLA_BRPORT_NEIGH_VLAN_SUPPRESS;
+pub const IFLA_BRPORT_BACKUP_NHID: _bindgen_ty_8 = _bindgen_ty_8::IFLA_BRPORT_BACKUP_NHID;
 pub const __IFLA_BRPORT_MAX: _bindgen_ty_8 = _bindgen_ty_8::__IFLA_BRPORT_MAX;
 pub const IFLA_INFO_UNSPEC: _bindgen_ty_9 = _bindgen_ty_9::IFLA_INFO_UNSPEC;
 pub const IFLA_INFO_KIND: _bindgen_ty_9 = _bindgen_ty_9::IFLA_INFO_KIND;
@@ -1790,7 +1791,8 @@ IFLA_BRPORT_MAB = 40,
 IFLA_BRPORT_MCAST_N_GROUPS = 41,
 IFLA_BRPORT_MCAST_MAX_GROUPS = 42,
 IFLA_BRPORT_NEIGH_VLAN_SUPPRESS = 43,
-__IFLA_BRPORT_MAX = 44,
+IFLA_BRPORT_BACKUP_NHID = 44,
+__IFLA_BRPORT_MAX = 45,
 }
 #[repr(u32)]
 #[non_exhaustive]

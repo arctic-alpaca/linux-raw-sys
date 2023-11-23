@@ -436,7 +436,9 @@ pub addr: __u64,
 pub fd: __s32,
 pub flags: __u32,
 pub timeout: __kernel_timespec,
-pub pad: [__u64; 4usize],
+pub opcode: __u8,
+pub pad: [__u8; 7usize],
+pub pad2: [__u64; 3usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -687,6 +689,7 @@ pub const IORING_SETUP_SINGLE_ISSUER: u32 = 4096;
 pub const IORING_SETUP_DEFER_TASKRUN: u32 = 8192;
 pub const IORING_SETUP_NO_MMAP: u32 = 16384;
 pub const IORING_SETUP_REGISTERED_FD_ONLY: u32 = 32768;
+pub const IORING_SETUP_NO_SQARRAY: u32 = 65536;
 pub const IORING_URING_CMD_FIXED: u32 = 1;
 pub const IORING_URING_CMD_POLLED: u32 = 2147483648;
 pub const IORING_FSYNC_DATASYNC: u32 = 1;
@@ -708,6 +711,8 @@ pub const IORING_ASYNC_CANCEL_ALL: u32 = 1;
 pub const IORING_ASYNC_CANCEL_FD: u32 = 2;
 pub const IORING_ASYNC_CANCEL_ANY: u32 = 4;
 pub const IORING_ASYNC_CANCEL_FD_FIXED: u32 = 8;
+pub const IORING_ASYNC_CANCEL_USERDATA: u32 = 16;
+pub const IORING_ASYNC_CANCEL_OP: u32 = 32;
 pub const IORING_RECVSEND_POLL_FIRST: u32 = 1;
 pub const IORING_RECV_MULTISHOT: u32 = 2;
 pub const IORING_RECVSEND_FIXED_BUF: u32 = 4;
@@ -798,6 +803,8 @@ pub const IORING_RESTRICTION_SQE_OP: _bindgen_ty_7 = _bindgen_ty_7::IORING_RESTR
 pub const IORING_RESTRICTION_SQE_FLAGS_ALLOWED: _bindgen_ty_7 = _bindgen_ty_7::IORING_RESTRICTION_SQE_FLAGS_ALLOWED;
 pub const IORING_RESTRICTION_SQE_FLAGS_REQUIRED: _bindgen_ty_7 = _bindgen_ty_7::IORING_RESTRICTION_SQE_FLAGS_REQUIRED;
 pub const IORING_RESTRICTION_LAST: _bindgen_ty_7 = _bindgen_ty_7::IORING_RESTRICTION_LAST;
+pub const SOCKET_URING_OP_SIOCINQ: _bindgen_ty_8 = _bindgen_ty_8::SOCKET_URING_OP_SIOCINQ;
+pub const SOCKET_URING_OP_SIOCOUTQ: _bindgen_ty_8 = _bindgen_ty_8::SOCKET_URING_OP_SIOCOUTQ;
 #[repr(u32)]
 #[non_exhaustive]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
@@ -810,6 +817,7 @@ FSCONFIG_SET_PATH_EMPTY = 4,
 FSCONFIG_SET_FD = 5,
 FSCONFIG_CMD_CREATE = 6,
 FSCONFIG_CMD_RECONFIGURE = 7,
+FSCONFIG_CMD_CREATE_EXCL = 8,
 }
 #[repr(u32)]
 #[non_exhaustive]
@@ -946,6 +954,13 @@ IORING_RESTRICTION_SQE_OP = 1,
 IORING_RESTRICTION_SQE_FLAGS_ALLOWED = 2,
 IORING_RESTRICTION_SQE_FLAGS_REQUIRED = 3,
 IORING_RESTRICTION_LAST = 4,
+}
+#[repr(u32)]
+#[non_exhaustive]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub enum _bindgen_ty_8 {
+SOCKET_URING_OP_SIOCINQ = 0,
+SOCKET_URING_OP_SIOCOUTQ = 1,
 }
 #[repr(C)]
 #[derive(Copy, Clone)]

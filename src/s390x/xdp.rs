@@ -154,6 +154,7 @@ pub const XDP_SHARED_UMEM: u32 = 1;
 pub const XDP_COPY: u32 = 2;
 pub const XDP_ZEROCOPY: u32 = 4;
 pub const XDP_USE_NEED_WAKEUP: u32 = 8;
+pub const XDP_USE_SG: u32 = 16;
 pub const XDP_UMEM_UNALIGNED_CHUNK_FLAG: u32 = 1;
 pub const XDP_RING_NEED_WAKEUP: u32 = 1;
 pub const XDP_MMAP_OFFSETS: u32 = 1;
@@ -171,6 +172,7 @@ pub const XDP_UMEM_PGOFF_FILL_RING: u64 = 4294967296;
 pub const XDP_UMEM_PGOFF_COMPLETION_RING: u64 = 6442450944;
 pub const XSK_UNALIGNED_BUF_OFFSET_SHIFT: u32 = 48;
 pub const XSK_UNALIGNED_BUF_ADDR_MASK: u64 = 281474976710655;
+pub const XDP_PKT_CONTD: u32 = 1;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union __vector128__bindgen_ty_1 {

@@ -1557,6 +1557,7 @@ pub const DEVCONF_IOAM6_ID: _bindgen_ty_3 = _bindgen_ty_3::DEVCONF_IOAM6_ID;
 pub const DEVCONF_IOAM6_ID_WIDE: _bindgen_ty_3 = _bindgen_ty_3::DEVCONF_IOAM6_ID_WIDE;
 pub const DEVCONF_NDISC_EVICT_NOCARRIER: _bindgen_ty_3 = _bindgen_ty_3::DEVCONF_NDISC_EVICT_NOCARRIER;
 pub const DEVCONF_ACCEPT_UNTRACKED_NA: _bindgen_ty_3 = _bindgen_ty_3::DEVCONF_ACCEPT_UNTRACKED_NA;
+pub const DEVCONF_ACCEPT_RA_MIN_LFT: _bindgen_ty_3 = _bindgen_ty_3::DEVCONF_ACCEPT_RA_MIN_LFT;
 pub const DEVCONF_MAX: _bindgen_ty_3 = _bindgen_ty_3::DEVCONF_MAX;
 pub const TCP_FLAG_CWR: _bindgen_ty_4 = _bindgen_ty_4::TCP_FLAG_CWR;
 pub const TCP_FLAG_ECE: _bindgen_ty_4 = _bindgen_ty_4::TCP_FLAG_ECE;
@@ -1754,7 +1755,8 @@ DEVCONF_IOAM6_ID = 54,
 DEVCONF_IOAM6_ID_WIDE = 55,
 DEVCONF_NDISC_EVICT_NOCARRIER = 56,
 DEVCONF_ACCEPT_UNTRACKED_NA = 57,
-DEVCONF_MAX = 58,
+DEVCONF_ACCEPT_RA_MIN_LFT = 58,
+DEVCONF_MAX = 59,
 }
 #[repr(u32)]
 #[non_exhaustive]
